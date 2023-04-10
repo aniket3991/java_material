@@ -1,0 +1,17 @@
+package com.udemy.app;
+
+import java.io.IOException;
+
+public class ExceptionChild extends ExceptionParent {
+
+	/**
+	 * If SuperClass doesn’t declare any exception and subclass declare checked exception:
+	 * method() in SubClass cannot override method() in SuperClass void method() throws IOException
+	 */
+
+	void method() throws IOException{  // 1/a) example
+	// void method() throws ArithmeticException   // 1/b) example
+	//void method() throws ArithmeticException{
+		System.out.println("Child Class");
+	}
+}

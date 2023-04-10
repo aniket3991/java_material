@@ -1,0 +1,10 @@
+package com.udemy.app;
+
+public class ExceptionParent {
+
+	// SuperClass doesn't declare any exception 
+    void method() 
+    { 
+        System.out.println("SuperClass"); 
+    } 
+}

@@ -1,0 +1,35 @@
+package com.udemy.app;
+
+public class App {
+
+	/**
+	 * Exceptions
+	 **/
+
+	public static void main(String[] args) {
+
+		/**
+		 * Nested try block
+		 */
+
+		// Main try block 
+        try { 
+  
+            int exampleArray[] = { 1, 2, 3, 4, 5 }; 
+ 
+            System.out.println(exampleArray[3]); 
+  
+            // second try-block inside another try block 
+            try { 
+  
+                int x = exampleArray[2] / 0;  //division by zero
+            } 
+            catch (ArithmeticException e2) { 
+                System.out.println("ArithmeticException - Division by zero is not possible"); 
+            } 
+        } 
+        catch (ArrayIndexOutOfBoundsException e1) { 
+            System.out.println("ArrayIndexOutOfBoundsException - Element at such index does not exists"); 
+        } 
+    }
+}

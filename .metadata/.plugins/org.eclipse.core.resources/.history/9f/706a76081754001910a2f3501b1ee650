@@ -1,0 +1,34 @@
+package com.udemy.app;
+
+public class NonOptionalExample {
+
+	/**
+	 * NonOptional example as comparison
+	 **/
+
+	public static void main(String[] args) {
+
+		Stamp stamp = new Stamp("Barbados");
+		Passport passport = new Passport(null);
+		Person person = new Person("Kevin Smith", passport);
+
+		/**
+		 * If person, passport or stamp is null, than NullPointerExecption
+		 */
+		//System.out.println(person.getPassport().getStamp().getCountryOfStamp());
+
+		String country;
+		if (person != null) {
+			Passport pass = person.getPassport();
+			if (pass != null) {
+				Stamp st = passport.getStamp();
+				if (st != null) {
+					country = person.getPassport().getStamp().getCountryOfStamp();
+					System.out.println(country);
+				}
+			}
+		}
+
+	}
+
+}

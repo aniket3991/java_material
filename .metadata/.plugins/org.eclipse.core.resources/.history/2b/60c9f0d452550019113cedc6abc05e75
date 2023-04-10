@@ -1,0 +1,10 @@
+package com.udemy.app;
+
+import java.io.IOException;
+
+public class ExceptionChild extends ExceptionParent {
+	
+	void method() throws IOException {
+		System.out.println("Child Class");
+	}
+}

@@ -1,0 +1,45 @@
+package com.udemy.app;
+
+import java.util.function.Consumer;
+import java.util.function.Predicate;
+import java.util.function.UnaryOperator;
+
+public class App {
+
+	/**
+	 * Functional interfaces
+	 **/
+
+	public static void main(String[] args) {
+
+		// simplified lambda expression
+		Sum s = (i, i2) -> i + i2;
+		System.out.println(s.adding(5, 3));
+
+		/**
+		 * Predefined functional interfaces - Consumer Interface
+		 */
+
+		// Consumer interface represents an operation that accepts a single input argument and returns no result.
+		Consumer<String> cons = (st) -> System.out.println(st.toLowerCase());
+		cons.accept("Java programing: Step by Step from A to Z");
+		// accept: performs operation on the given argument.
+
+		/**
+		 * Predefined functional interfaces - Predicate Interface
+		 */
+
+		// Predicate interface represents a predicate (boolean-valued function) of one argument.
+		Predicate<Integer> pr = a -> (a > 10);
+		System.out.println(pr.test(11));
+		// test: evaluates this predicate on the given argument.
+		
+		/**
+		 * 
+		 */
+		
+		UnaryOperator<String> str  = (x)-> x.toUpperCase();	    
+	    System.out.println(str.apply("hello java"));
+	}
+
+}

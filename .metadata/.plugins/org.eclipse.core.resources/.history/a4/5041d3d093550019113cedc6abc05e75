@@ -1,0 +1,61 @@
+package com.udemy.app;
+
+import java.util.function.Consumer;
+import java.util.function.Function;
+import java.util.function.Predicate;
+import java.util.function.UnaryOperator;
+
+public class App {
+
+	/**
+	 * Functional interfaces
+	 **/
+
+	public static void main(String[] args) {
+
+		// simplified lambda expression
+		Sum sum = (i, i2) -> i + i2;
+		System.out.println(sum.adding(5, 3));
+
+		/**
+		 * Predefined functional interfaces - Consumer<T>
+		 */
+
+		// Consumer interface represents an operation that accepts a single input argument and returns no result.
+		Consumer<String> cons = (st) -> System.out.println(st.toLowerCase());
+		cons.accept("Java programing: Step by Step from A to Z");
+		// accept: performs operation on the given argument.
+
+		/**
+		 * Predefined functional interfaces - Predicate<T>
+		 */
+
+		// Predicate interface represents a predicate (boolean-valued function) of one argument.
+		Predicate<Integer> pr = a -> (a > 10);
+		System.out.println(pr.test(11));
+		// test: evaluates this predicate on the given argument.
+
+		/**
+		 * Predefined functional interfaces - UnaryOperator<T>
+		 */
+
+		// It represents an operation on a single operand that returns a result of the same type as its operand
+		UnaryOperator<String> str = (x) -> x.toUpperCase();
+		System.out.println(str.apply("hello java"));
+
+		/**
+		 * Predefined functional interfaces - Function<T,R>
+		 */
+		
+		//It represents a function that accepts one argument and returns a result.
+		//Function<String, String> functionExample = App::show; 
+		Function<String, String> functionExample = s -> {return message(s);};
+		System.out.println(functionExample.apply("World!"));  
+
+	}
+
+	static String message(String s) {
+		return "Hello " + s;
+	};
+
+}

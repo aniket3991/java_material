@@ -1,0 +1,15 @@
+package com.udemy.app;
+
+import java.io.Serializable;
+
+public class Car implements Serializable {
+	String carBrand;
+	int motorNumber;
+	String color;
+
+	public Car(String carBrand, int motorNumber, String color) {
+		this.carBrand = carBrand;
+		this.motorNumber = motorNumber;
+		this.color = color;
+	}
+}

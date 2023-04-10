@@ -1,0 +1,84 @@
+package com.udemy.app;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+import java.util.Optional;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
+public class App {
+
+	/**
+	 * Stream 2 - Methods examples
+	 **/
+
+	public static void main(String[] args) {
+
+		/**
+		 * Stream - of / findFirst
+		 */
+		Stream.of("a1", "a2", "a3").findFirst().ifPresent(System.out::println); 
+
+		/**
+		 * Stream - count
+		 */
+		
+		List<String> names = Arrays.asList("Alan", "James", "Kevin", "Joe");		
+		long count = names.stream().filter(name -> name.startsWith("J")).count();
+		System.out.println(count);
+		
+		/**
+		 * 
+		 */
+		
+		long count2 = Stream.ofNullable(100).count();
+	      System.out.println(count2);
+		
+		/**
+		 * Stream - iterate
+		 */
+		System.out.println("Stream - iterate");
+		Stream<Integer> numbers = Stream.iterate(1, n -> n + 1).limit(10);
+		numbers.forEach(n -> System.out.print(n + " "));
+
+		/**
+		 * Stream - generate
+		 */
+		System.out.println("\nStream - generate");
+		Stream<Double> randoms = Stream.generate(Math::random).limit(3);
+		randoms.forEach(System.out::println);
+
+		/**
+		 * Stream - reduce
+		 */
+
+		String[] title = { "Java", "Programing", "Step", "by", "Step", "from", "A", "to", "Z", };
+		// Using Arrays.stream() to convert array into Stream
+		Stream<String> stream = Arrays.stream(title);
+		Optional<String> courseTitle = stream.reduce((word1, word2) -> word1 + "_" + word2);
+		if (courseTitle.isPresent()) {
+			System.out.println(courseTitle.get());
+		}
+
+		/**
+		 * Stream - map
+		 */
+
+		List<String> words = Arrays.asList("hello ", "java ", "word");
+		List<String> greeting = words.stream().map(String::toUpperCase).collect(Collectors.toList());
+		greeting.forEach(System.out::print);
+
+		List<String> greeting2 = words.stream().flatMap(w -> Stream.of(w + "x")).collect(Collectors.toList());
+		greeting2.forEach(System.out::print);
+
+		/**
+		 * Stream - flatMap
+		 */
+
+	}
+
+}

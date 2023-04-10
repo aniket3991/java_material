@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename type &apos;com.udemy.app.ThreadA&apos; to &apos;App&apos;&#x0D;&#x0A;- Original project: &apos;99SynchronizedWaitNotify2&apos;&#x0D;&#x0A;- Original element: &apos;com.udemy.app.ThreadA&apos;&#x0D;&#x0A;- Renamed element: &apos;com.udemy.app.App&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;ThreadA&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src&lt;com.udemy.app{ThreadA.java[ThreadA" matchStrategy="1" name="App" qualified="false" references="true" similarDeclarations="false" stamp="1554673944745" textual="false" version="1.0"/>
+</session>

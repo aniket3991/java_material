@@ -1,0 +1,17 @@
+package com.udemy.app;
+
+public class App {
+
+	/**
+	 * Exceptions
+	 **/
+
+	public static void main(String[] args) {
+
+		/**
+		 * ExceptionHandling with MethodOverriding
+		 */
+
+    }
+	
+}

@@ -1,0 +1,37 @@
+package com.udemy.app;
+
+public class App {
+
+	/**
+	 * Exceptions
+	 **/
+
+	public static void main(String[] args) {
+
+		/**
+		 * Nested try block
+		 */
+
+		// Outer try-catch block
+        try {
+            System.out.println("Statment ABOVE"
+                    + " nested try-catch block");
+ 
+            try {
+                // Inner try-catch block
+                int result = 18/0;
+                System.out.println("The result of division : "
+                        + result);
+            }
+            catch(ArithmeticException aex) {
+                aex.printStackTrace();
+            }
+            System.out.println("Statment BELOW"
+                    + " nested try-catch block");
+        }
+        catch(Exception ex) {
+            ex.printStackTrace();
+        }
+	}
+
+}

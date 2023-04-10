@@ -1,0 +1,76 @@
+package com.udemy.app;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Optional;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
+public class App {
+
+	/**
+	 * Stream
+	 **/
+
+	public static void main(String[] args) {
+
+//		List<String> list = Arrays.asList("a", "b", "c");
+//		Stream<String> fromList = list.stream();
+//		fromList.forEach(n -> System.out.println(n));
+//
+//		Iterator<String> crunchifyIterator = list.iterator();
+//		while (crunchifyIterator.hasNext()) {
+//			System.out.println(crunchifyIterator.next());
+//		}
+
+		Stream<Integer> probaInt = Stream.iterate(1, n -> n+1).limit(10);
+		probaInt.forEach(n -> System.out.print(n + " "));
+		// probaInt.forEach(System.out::print);
+
+//		Stream<Double> randoms = Stream.generate(Math::random); 
+//		randoms.forEach(System.out::println);
+
+		List<String> list2 = new ArrayList<String>();
+		list2.add("java");
+		list2.add("php");
+		list2.add("python");
+//		Stream<String> stream = Stream.iterate(String, list2);
+		Stream<String> stream = list2.stream();
+
+		stream.forEach(System.out::println);
+		// stream.forEach(n -> System.out.println(n)); //ha kétszer akarjuk ugyanazt a streamet használni:
+		// IllegalStateException: stream has already been operated upon or closed
+		
+		System.out.println("-");
+
+		/**
+		 * ez jó példa lesz. megmutatni, hogy a stream().filter-el vissza is lehet tölteni az elemeket és így
+		 * létrehozni egy új listát (ami aztán értelemszerûen szabadon használható), vagy lehet direkt Stream-el
+		 * "párosítani" a filterezést, de mivel a stream csak egyszer használható, nem tárol csak végrehajt, így ennek
+		 * teljesen más a hasznosítási célja (új-szûrt lista tárolása VS csak megjelenítés, vagy átadás valaminek)
+		 * megmutatni: ha duplikáljuk a filteredName-es forEach-et, akkor semmi gond, duplán íródik ki, ellenben
+		 * ha duplikáljuk a str.forEach-et, akkor error "IllegalStateException: stream has already been operated upon
+		 * or closed"
+		 */
+		List<String> names = Arrays.asList("Alan", "James", "Kevin", "Joe");
+		List<String> filteredNames = names.stream().filter(name -> name.startsWith("J")).collect(Collectors.toList());
+		names.forEach(n -> System.out.print(n + " "));
+		System.out.println("");
+		filteredNames.forEach(n -> System.out.print(n + " "));
+
+		System.out.println("---");
+		Stream<String> str = names.stream().filter(name -> name.startsWith("J"));
+		str.forEach(System.out::println);
+		////////////////////////////////////////
+		
+		 List<String> list9 = Arrays. asList ("a", "b", "c");
+		 Stream<String> fromList2 = list9.stream().filter(name -> name.startsWith("a")); 
+		 fromList2.forEach(System.out::println);
+
+		 //////////////////////////
+
+	}
+
+}

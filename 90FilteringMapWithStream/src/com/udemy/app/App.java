@@ -1,0 +1,43 @@
+package com.udemy.app;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+import java.util.Optional;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
+public class App {
+
+	/**
+	 * Stream 3 - Filtering Map with Stream
+	 **/
+
+	public static void main(String[] args) {
+        
+        /**
+         * Stream - map, collect, filter, skip
+         */
+        
+        Map<Integer, String> names = new HashMap<>();
+        names.put(1, "Kevin");
+        names.put(2, "Joe");
+        names.put(3, "Judy");
+        names.put(4, "Donald");
+        names.put(5, "Kate");
+        
+        Map<Integer, String> collectedNames = names.entrySet().stream()
+                .filter(map -> map.getKey() <= 4)
+                .skip(2)
+                .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
+
+        System.out.println(collectedNames); //output : {3=Judy, 4=Donald}
+
+
+
+	}
+
+}

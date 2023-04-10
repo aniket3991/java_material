@@ -1,0 +1,82 @@
+package com.udemy.app;
+
+import java.util.Optional;
+
+public class OptionalClass {
+
+	/**
+	 * Optional
+	 **/
+
+	public static void main(String[] args) {
+
+		/**
+		 * empty()
+		 * of()
+		 * ofNullable()
+		 */
+		System.out.println("- Optional : empty(), of(), ofNullable() -");
+		
+		Optional<Person> personE = Optional.empty();
+		System.out.println(personE);
+
+		Person person = new Person("Kevin Smith");
+
+		Optional<Person> personOptional = Optional.of(person);
+		// Optional<Person> personOptional = Optional.of(null); //Throw NullPointerException
+
+		Optional<Person> personOptional2 = Optional.ofNullable(null);
+
+		/**
+		 * ifPresent()
+		 * isPresent()
+		 * get()
+		 */
+		System.out.println("- Optional : ifPresent(), isPresent(), get() -");
+		
+		Optional<Person> perOp = Optional.ofNullable(null);
+		perOp.ifPresent(System.out::println);
+		System.out.println(perOp);
+		// System.out.println("Value found : " + personOptional2.get().getName()); 
+		// NoSuchElementException if Optional empty
+
+		if (perOp.isPresent()) {
+			// value is present inside Optional
+			System.out.println("Value found : " + perOp.get().getName());
+		} else {
+			// value is absent
+			System.out.println("Optional is empty");
+		}
+
+		/**
+		 * orElse()
+		 * orElseGet()
+		 */
+		System.out.println("- Optional : orElse(), orElseGet() -");
+
+		Person personNew = personOptional.orElse(new Person("Joe Black")); // orElse : if personOptional empty
+		System.out.println(personNew.getName());
+
+		Person personNew2 = personOptional.orElseGet(() -> giveMeAnotherPerson()); // orElseGet : if personOptional empty
+		System.out.println(personNew2.getName());		
+		
+		Optional<Person> personOptional3 = Optional.ofNullable(new Person("Clark Kent"));
+		Optional<Person> personOptional4 = personOptional.or(() -> personOptional3); // or : if personOptional empty
+		System.out.println(personOptional4.get().getName());
+		
+
+		/**
+		 * filter()
+		 */
+
+		personOptional.filter(personO -> personO.getName().equals("Kevin Smith"))
+				.ifPresent(personO -> System.out.println("Filtering with the value 'Kevin Smith' found"));
+
+	}
+
+	static Person giveMeAnotherPerson() {
+		Person per = new Person("Amanda Fox");
+		return per;
+	}
+
+}

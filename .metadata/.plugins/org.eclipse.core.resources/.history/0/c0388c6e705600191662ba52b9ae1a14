@@ -1,0 +1,42 @@
+package com.udemy.app;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+import java.util.Optional;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
+public class App {
+
+	/**
+	 * Stream 3 - Maps
+	 **/
+
+	public static void main(String[] args) {
+        
+        /**
+         * Stream - map
+         */
+        
+        Map<Integer, String> names = new HashMap<>();
+        names.put(1, "Kevin");
+        names.put(2, "Joe");
+        names.put(3, "Peter");
+        names.put(4, "Donald");
+        
+        
+        Map<Integer, String> collect2 = names.entrySet().stream()
+                .filter(map -> map.getKey() <= 3)
+                .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
+
+        System.out.println(collect2); //output : {1=linode.com, 2=heroku.com, 3=digitalocean.com}
+
+
+
+	}
+
+}

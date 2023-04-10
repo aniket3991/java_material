@@ -1,0 +1,72 @@
+package com.udemy.app;
+
+import java.util.Optional;
+
+public class OptionalClass {
+
+	/**
+	 * Optional
+	 **/
+
+	public static void main(String[] args) {
+
+		/**
+		 * empty()
+		 * of()
+		 * ofNullable()
+		 */
+		Optional<Person> personE = Optional.empty();
+		System.out.println(personE);
+
+		Person person = new Person("Kevin Smith");
+
+		// Optional<Person> personOptional = Optional.of(null); //Throw NullPointerException
+
+		Optional<Person> personOptional = Optional.ofNullable(null);
+
+		/**
+		 * ifPresent()
+		 * isPresent()
+		 * get()
+		 */
+		personOptional.ifPresent(System.out::println);
+		System.out.println(personOptional);
+		// System.out.println("Value found : " + personOptional.get().getName()); // NoSuchElementException if
+		// Optional
+		// empty
+
+		if (personOptional.isPresent()) {
+			// value is present inside Optional
+			System.out.println("Value found : " + personOptional.get().getName());
+		} else {
+			// value is absent
+			System.out.println("Optional is empty");
+		}
+
+		/**
+		 * orElse()
+		 * orElseGet()
+		 */
+
+		Person personNew = personOptional.orElse(new Person("Joe Black")); // orElse : if personOptional empty
+		System.out.println(personNew.getName());
+
+		Person personNew2 = personOptional.orElseGet(() -> giveMeAnotherPerson()); // orElseGet : if personOptional
+																					// empty
+		System.out.println(personNew2.getName());
+
+		/**
+		 * filter()
+		 */
+
+		personOptional.filter(personO -> personO.getName().equals("Kevin Smith"))
+				.ifPresent(personO -> System.out.println("Filtering with the value 'Kevin Smith' found"));
+
+	}
+
+	static Person giveMeAnotherPerson() {
+		Person per = new Person("Amanda Fox");
+		return per;
+	}
+
+}

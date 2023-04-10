@@ -1,0 +1,25 @@
+package com.udemy.app;
+
+import java.util.function.Consumer;
+import java.util.function.Predicate;
+
+public class App {
+
+	/**
+	 * Lambda expression
+	 * 
+	 **/
+
+	public static void main(String[] args) {
+
+		/**
+		 * Lambda expression example
+		 * 
+		 **/
+
+		// simplified lambda expression
+		Sum s2 = (i, i2) -> i+i2;
+
+		System.out.println(s2.adding(5, 3));
+	}
+}

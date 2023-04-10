@@ -1,0 +1,16 @@
+package com.udemy.app;
+
+public class App {
+
+	/**
+	 * Serialization
+	 * 
+	 **/
+
+	public static void main(String[] args) {
+
+
+
+	}
+
+}

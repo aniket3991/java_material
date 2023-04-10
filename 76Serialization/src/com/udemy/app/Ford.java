@@ -1,0 +1,17 @@
+package com.udemy.app;
+
+public class Ford extends Car {
+
+	/**
+	 * Serialization with Inheritance
+	 * If a class implements serializable then all its sub classes will also be serializable.
+	 */
+	
+	String fordType;
+
+	public Ford(String carBrand, int motorNumber, String color, String fordType) {
+		super(carBrand, motorNumber, color);
+		this.fordType = fordType;
+	}
+
+}

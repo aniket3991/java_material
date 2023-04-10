@@ -1,0 +1,39 @@
+package com.udemy.app;
+
+public class App {
+
+	/**
+	 * Exceptions
+	 **/
+
+	public static void main(String[] args) {
+
+		/**
+		 * Nested try block
+		 */
+
+		try {
+			try {
+				System.out.println("result of dividing: " + 40 / 2);
+				int b = 40 / 0;
+			} catch (ArithmeticException e) {
+				System.out.println(e);
+			}
+
+			try {
+				System.out.println("puting az element into an Array");
+				int a[] = new int[5];
+				a[9] = 4;
+			} catch (ArrayIndexOutOfBoundsException e) {
+				System.out.println(e);
+			}
+
+			System.out.println("other statement");
+		} catch (Exception e) {
+			System.out.println("handeled");
+		}
+
+		System.out.println("normal flow..");
+	}
+
+}

@@ -1,0 +1,56 @@
+package com.udemy.app;
+
+/**
+ * Synchronized - Wait, Notify
+ */
+
+class Processor {
+	synchronized void waitingMethod() {
+		Thread t = Thread.currentThread();
+		System.out.println(t.getName() + " is relasing the lock and going to wait");
+
+		try {
+			wait(); // releases the lock of this object and waits
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+
+		System.out.println(t.getName() + " got the object lock back and continues its execution");
+	}
+
+	synchronized void sleepingMethod() {
+		Thread t = Thread.currentThread();
+
+		try {
+			Thread.sleep(3000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+
+		notify(); // wakes up one thread randomly which is waiting for lock of this object
+		System.out.println("A thread which is waiting for lock of this object is notified by " + t.getName());
+	}
+}
+
+
+public class App {
+
+	public static void main(String[] args) {
+		final Processor p = new Processor();
+
+		Thread t1 = new Thread() {
+			public void run() {
+				p.waitingMethod(); // t1 calling waitingMethod() of 's' object
+			}
+		};
+		Thread t2 = new Thread() {
+			@Override
+			public void run() {
+				p.sleepingMethod(); // t2 calling sleepingMethod() of 's' object
+			}
+		};
+
+		t1.start();
+		t2.start();
+	}
+}

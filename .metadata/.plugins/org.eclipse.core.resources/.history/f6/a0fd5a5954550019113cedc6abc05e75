@@ -1,0 +1,9 @@
+package com.udemy.app;
+
+public class ExceptionParent {
+
+    void method() 
+    { 
+        System.out.println("Parent Class"); 
+    } 
+}

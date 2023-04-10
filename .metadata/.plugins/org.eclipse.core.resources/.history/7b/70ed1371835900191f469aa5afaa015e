@@ -1,0 +1,15 @@
+package com.udemy.app;
+
+/**
+ * Synchronized - Wait, Notify
+ */
+
+
+
+public class App {
+	public static void main(String[] args) {
+
+
+
+	}
+}

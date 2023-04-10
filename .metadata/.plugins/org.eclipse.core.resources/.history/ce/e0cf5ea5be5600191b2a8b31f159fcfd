@@ -1,0 +1,27 @@
+package com.udemy.app;
+
+import java.util.Optional;
+
+public class OptionalExample {
+
+	/**
+	 * Optional
+	 **/
+
+	public static void main(String[] args) {
+
+		String country = "Barbados";
+		Optional<Stamp> stamp = Optional.ofNullable(new Stamp(country));
+		Optional<Passport> passport = Optional.ofNullable(new Passport(stamp));
+		Optional<Person> person = Optional.ofNullable(new Person("Kevin", passport));
+
+		String ld = person.flatMap(Person::getPassport)
+				.map(Passport::getStamp)
+				.map(Stamp::getCountryOfStamp)
+				.orElse("Unknown");
+
+		System.out.println(ld);
+
+	}
+
+}

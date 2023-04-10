@@ -1,0 +1,22 @@
+package com.udemy.app;
+
+public class App {
+
+	/**
+	 * Exceptions
+	 **/
+
+	public static void main(String[] args) {
+
+		/**
+		 * ExceptionHandling with MethodOverriding
+		 */
+
+    }
+	
+	// SuperClass doesn't declare any exception 
+    void method() 
+    { 
+        System.out.println("SuperClass"); 
+    } 
+}

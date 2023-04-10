@@ -1,0 +1,14 @@
+package com.udemy.app;
+
+import java.io.IOException;
+
+public class ExceptionSub extends ExceptionParent {
+	// method() declaring Checked Exception IOException
+	void method() throws IOException {
+
+		// IOException is of type Checked Exception
+		// so the compiler will give Error
+
+		System.out.println("SubClass");
+	}
+}
